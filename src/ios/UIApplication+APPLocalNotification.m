@@ -96,12 +96,11 @@ NSMutableDictionary *allNotificationCategories = nil;
         if (interactions && [interactions count])
         {
             for (NSString* interaction in interactions)
-            
-            if (![interaction isKindOfClass:[NSString class]]) {
-                continue;
-            }
-
             {
+                if (![interaction isKindOfClass:[NSString class]]) {
+                    continue;
+                }
+
                 NSData* interactionsData = [interaction dataUsingEncoding:NSUTF8StringEncoding];
                 NSDictionary* interactionsDict = [NSJSONSerialization JSONObjectWithData:interactionsData options:NSJSONReadingMutableContainers error:nil];
 
